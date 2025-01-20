@@ -1,0 +1,16 @@
+/* src/app/components/admin-users/admin-users.component.css */
+.admin-users-container {
+  padding: 20px;
+}
+
+.table-container {
+  margin-top: 20px;
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+.mat-elevation-z8 {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}

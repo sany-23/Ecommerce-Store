@@ -1,0 +1,10 @@
+<!-- src/app/components/admin-navbar/admin-navbar.component.html -->
+<mat-toolbar color="primary">
+  <span>Admin Dashboard</span>
+  <span class="spacer"></span>
+  <button mat-button routerLink="/admin-dashboard">Dashboard</button>
+  <button mat-button routerLink="/admin-products">Manage Products</button>
+  <button mat-button routerLink="/admin-orders">Manage Orders</button>
+  <button mat-button routerLink="/admin-users">Manage Users</button>
+  <button mat-button (click)="logout()">Logout</button>
+</mat-toolbar>

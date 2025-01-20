@@ -1,0 +1,22 @@
+/* src/app/components/admin-products/admin-products.component.css */
+.admin-products-container {
+  padding: 20px;
+}
+
+.table-container {
+  margin-top: 20px;
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+.mat-elevation-z8 {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Add hover effect for table rows */
+.mat-row:hover {
+  background-color: #87b0df80;
+  cursor: pointer;
+}

@@ -1,0 +1,91 @@
+<!-- src/app/components/admin-orders/admin-orders.component.html -->
+<div class="admin-orders-container">
+  <h1>Admin Orders</h1>
+  <div class="table-container">
+    <mat-form-field appearance="fill">
+      <mat-label>Filter</mat-label>
+      <input
+        matInput
+        (input)="applyFilter($event)"
+        placeholder="Filter orders"
+      />
+    </mat-form-field>
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+      <ng-container matColumnDef="orderId">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Order ID</th>
+        <td mat-cell *matCellDef="let order">{{ order.id }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="customerName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Ordered By</th>
+        <td mat-cell *matCellDef="let order">{{ order.user.username }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
+        <td mat-cell *matCellDef="let order">
+          <mat-form-field appearance="outline">
+            <mat-select [(value)]="order.status">
+              <mat-option value="AWAITING_DELIVERY"
+                >Awaiting Delivery</mat-option
+              >
+              <mat-option value="SHIPPED">Shipped</mat-option>
+              <mat-option value="DELIVERED">Delivered</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="paymentStatus">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          Payment Status
+        </th>
+        <td mat-cell *matCellDef="let order">{{ order.paymentStatus }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Price</th>
+        <td mat-cell *matCellDef="let order">
+          {{ order.totalPrice | currency }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="contactNumber">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          Contact Number
+        </th>
+        <td mat-cell *matCellDef="let order">{{ order.contactNumber }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="deliveryAddress">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          Delivery Address
+        </th>
+        <td mat-cell *matCellDef="let order">{{ order.deliveryAddress }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="trackingNumber">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          Tracking Number
+        </th>
+        <td mat-cell *matCellDef="let order">{{ order.trackingNumber }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td mat-cell *matCellDef="let order">
+          <button
+            mat-raised-button
+            color="primary"
+            (click)="updateOrderStatus(order.id, order.status)"
+          >
+            Update Status
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
+</div>

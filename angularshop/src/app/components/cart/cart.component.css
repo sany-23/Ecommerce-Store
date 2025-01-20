@@ -1,0 +1,9 @@
+/* src/app/components/cart/cart.component.css */
+.cart-container {
+  padding: 20px;
+}
+
+.total-price {
+  margin-top: 20px;
+  text-align: right;
+}

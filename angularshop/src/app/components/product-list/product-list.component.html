@@ -1,0 +1,60 @@
+<!-- src/app/components/product-list/product-list.component.html -->
+<div class="product-list-container">
+  <div class="sidebar" style="width: 15%">
+    <mat-form-field appearance="fill">
+      <mat-label>Search</mat-label>
+      <input
+        matInput
+        (input)="applyFilter($event)"
+        placeholder="Search products"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Category</mat-label>
+      <mat-select
+        [(value)]="selectedCategory"
+        (selectionChange)="applyCategoryFilter()"
+      >
+        <mat-option *ngFor="let category of categories" [value]="category.id">
+          {{ category.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-button (click)="resetFilter()">Reset Filter</button>
+  </div>
+  <div class="product-cards" style="width: 100%">
+    <mat-card *ngFor="let product of filteredProducts" class="product-card">
+      <img
+        mat-card-image
+        [src]="getImageUrl(product.imageUrl)"
+        alt="{{ product.name }}"
+      />
+      <mat-card-title>{{ product.name }}</mat-card-title>
+      <mat-divider></mat-divider>
+      <mat-card-content>
+        <p><strong>Stock:</strong> {{ product.stock }}</p>
+        <p>
+          <strong>Category:</strong> {{ getCategoryName(product.category) }}
+        </p>
+        <p><strong>Price:</strong> {{ product.price | currency }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button
+          mat-button
+          *ngIf="!cart[product.id]"
+          (click)="addToCart(product)"
+        >
+          Add to Cart
+        </button>
+        <button mat-button *ngIf="cart[product.id]" disabled>In Cart</button>
+        <button mat-button (click)="viewProduct(product)">View Product</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+  <mat-paginator
+    style="margin-top: 20px; width: 100%"
+    [length]="totalProducts"
+    [pageSize]="pageSize"
+    (page)="changePage($event)"
+  ></mat-paginator>
+</div>

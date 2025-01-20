@@ -1,0 +1,27 @@
+.product-list-container {
+  display: flex;
+}
+
+.sidebar {
+  width: 20%;
+  padding: 20px;
+  background-color: #f5f5f5;
+}
+
+.product-cards {
+  width: 80%;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.product-card {
+  width: calc(33.333% - 20px);
+  box-sizing: border-box;
+}
+
+.product-card img {
+  height: 150px;
+  object-fit: cover;
+}

@@ -1,0 +1,109 @@
+<!-- <div class="login-container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Login</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <mat-form-field appearance="outline">
+          <mat-label>Username</mat-label>
+          <input matInput formControlName="username" required />
+          <mat-error *ngIf="loginForm.get('username')?.hasError('required')">
+            Username is required
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input matInput type="password" formControlName="password" required />
+          <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
+            Password is required
+          </mat-error>
+        </mat-form-field>
+        <div class="button-container">
+          <button mat-raised-button color="primary" type="submit">Login</button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
+ -->
+
+<!-- src/app/components/login/login.component.html -->
+
+<body>
+  <div class="animated-background">
+    <div class="gradient-sphere sphere-1"></div>
+    <div class="gradient-sphere sphere-2"></div>
+    <div class="gradient-sphere sphere-3"></div>
+    <div class="particles" id="particles"></div>
+  </div>
+
+  <div class="login-container">
+    <div class="login-header">
+      <h1>Welcome Back</h1>
+      <p>Sign in to continue your journey</p>
+    </div>
+
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-input"
+          formControlName="username"
+          placeholder="Username"
+          required
+        />
+        <i class="input-icon fas fa-user"></i>
+        <span
+          class="error-message"
+          *ngIf="loginForm.get('username')?.hasError('required')"
+        >
+          Username is required
+        </span>
+      </div>
+
+      <div class="form-group">
+        <input
+          type="password"
+          class="form-input"
+          formControlName="password"
+          placeholder="Password"
+          required
+        />
+        <i class="input-icon fas fa-lock"></i>
+        <span
+          class="error-message"
+          *ngIf="loginForm.get('password')?.hasError('required')"
+        >
+          Password is required
+        </span>
+      </div>
+
+      <button type="submit" class="submit-button">Sign In</button>
+    </form>
+
+    <div class="divider">
+      <span>or continue with</span>
+    </div>
+
+    <div class="social-login">
+      <button class="social-button" (click)="handleSocialLogin('google')">
+        <i class="fab fa-google"></i>
+      </button>
+      <button class="social-button" (click)="handleSocialLogin('apple')">
+        <i class="fab fa-apple"></i>
+      </button>
+      <button class="social-button" (click)="handleSocialLogin('github')">
+        <i class="fab fa-github"></i>
+      </button>
+    </div>
+
+    <div class="additional-options">
+      <a href="#" (click)="handleForgotPassword()">Forgot password?</a>
+      <p style="margin-top: 1rem">
+        Don't have an account?
+        <a routerLink="/register" routerLinkActive="active">Sign up</a>
+      </p>
+    </div>
+  </div>
+</body>

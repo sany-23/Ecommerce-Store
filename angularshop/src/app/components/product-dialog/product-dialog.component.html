@@ -1,0 +1,20 @@
+<!-- src/app/components/product-dialog/product-dialog.component.html -->
+<h1 mat-dialog-title>{{ data.name }}</h1>
+<div mat-dialog-content>
+  <img
+    [src]="getImageUrl(data.imageUrl)"
+    alt="{{ data.name }}"
+    class="product-image"
+  />
+  <p>{{ data.description }}</p>
+  <p><strong>Stock:</strong> {{ data.stock }}</p>
+  <p><strong>Category:</strong> {{ data.category.name }}</p>
+  <p><strong>Price:</strong> {{ data.price | currency }}</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button *ngIf="!inCart" (click)="addToCart(data)">
+    Add to Cart
+  </button>
+  <button mat-button *ngIf="inCart" disabled>In Cart</button>
+  <button mat-button mat-dialog-close>Close</button>
+</div>

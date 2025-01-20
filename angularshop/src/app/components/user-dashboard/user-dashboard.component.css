@@ -1,0 +1,32 @@
+/* src/app/components/user-dashboard/user-dashboard.component.css */
+.user-dashboard-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 50px;
+}
+
+.dashboard-card {
+  width: 30%;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.dashboard-card:hover {
+  transform: scale(1.05);
+}
+
+.dashboard-card:nth-child(1) {
+  background-color: #ffcc80;
+}
+
+.dashboard-card:nth-child(2) {
+  background-color: #90caf9;
+}
+
+.dashboard-card:nth-child(3) {
+  background-color: #a5d6a7;
+}

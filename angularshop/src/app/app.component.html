@@ -1,0 +1,15 @@
+<!-- src/app/app.component.html -->
+<ng-container *ngIf="authService.isLoggedIn(); else guestNavbar">
+  <ng-container
+    *ngIf="authService.getUser().role === 'ROLE_ADMIN'; else userNavbar"
+  >
+    <app-admin-navbar></app-admin-navbar>
+  </ng-container>
+  <ng-template #userNavbar>
+    <app-user-navbar></app-user-navbar>
+  </ng-template>
+</ng-container>
+<ng-template #guestNavbar>
+  <app-navbar></app-navbar>
+</ng-template>
+<router-outlet></router-outlet>

@@ -1,0 +1,11 @@
+<!-- src/app/components/user-navbar/user-navbar.component.html -->
+<mat-toolbar color="primary">
+  <span>My E-commerce</span>
+  <span class="spacer"></span>
+  <button mat-button routerLink="/user-dashboard">Dashboard</button>
+  <button mat-button routerLink="/products">Browse Products</button>
+  <button mat-button routerLink="/orders">Past Orders</button>
+  <button mat-button routerLink="/cart">Cart</button>
+  <button mat-button routerLink="/checkout-new">Checkout</button>
+  <button mat-button (click)="logout()">Logout</button>
+</mat-toolbar>

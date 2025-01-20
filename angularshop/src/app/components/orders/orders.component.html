@@ -1,0 +1,14 @@
+<!-- src/app/components/orders/orders.component.html -->
+<div class="orders-container">
+  <h1>Your Orders</h1>
+  <div class="order-card" *ngFor="let order of orders">
+    <mat-card>
+      <mat-card-title>Order ID: {{ order.id }}</mat-card-title>
+      <mat-card-content>
+        <p><strong>Status:</strong> {{ order.status }}</p>
+        <p><strong>Payment Status:</strong> {{ order.paymentStatus }}</p>
+        <p><strong>Total Price:</strong> {{ order.totalPrice | currency }}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
